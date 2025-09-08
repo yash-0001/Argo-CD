@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yash-dep
+  namespace: yash
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fnp
+  template:
+    metadata:
+      labels:
+        app: fnp
+    spec:
+      containers:
+        - name: yash-cont
+          image: imagename:version
+          ports:
+            - containerPort: 3000

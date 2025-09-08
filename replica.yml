@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: yash-replica
+  namespace: yash
+  labels:
+    app: nginx-rs
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: yash-rs
+  template:
+    metadata:
+      labels:
+        app: yash-rs 
+    spec:
+      containers:
+        - name: yash-cont
+          image: nginx:latest
+          ports: 
+            - containerPort: 80   
